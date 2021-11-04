@@ -1,9 +1,9 @@
 # CB-Ride
 
 ## サイト概要
-バイクに乗る人を対象にしたサイトです。
-・愛車やツーリング先、駐輪場などの情報を共有できます。
-・バイクに関するお悩みなどを共有することができます。
+バイクに乗る人を対象にしたサイトです。<br>
+・愛車やツーリング先、駐輪場などの情報を共有できます。<br>
+・バイクに関するお悩みなどを共有することができます。<br>
 ・フォロー、コメント機能により、バイク好きな人と繋がり、新しいコミュニティが広がります。
 
 ### サイトテーマ
@@ -18,13 +18,13 @@
 バイクに乗る方
 
 ### 主な利用シーン
-・ツーリング先の情報が欲しい時
-・駐輪場に困っている時
-・バイクに関して悩みがある時
+・ツーリング先の情報が欲しい時<br>
+・駐輪場に困っている時<br>
+・バイクに関して悩みがある時<br>
 
 ## 設計書
-・テーブル定義書　https://docs.google.com/spreadsheets/d/1bL-8qbTfM4QZnec9CsxH2JCNm4rZt6ACLO4nFZHmzcM/edit#gid=1373217982
-・ER図　https://app.diagrams.net/#G1tB0TbWsw_G2jqmHjpmx5huvQaYCUFL4V
+・テーブル定義書　https://docs.google.com/spreadsheets/d/1bL-8qbTfM4QZnec9CsxH2JCNm4rZt6ACLO4nFZHmzcM/edit#gid=1373217982<br>
+・ER図　https://app.diagrams.net/#G1tB0TbWsw_G2jqmHjpmx5huvQaYCUFL4V<br>
 ・WBS　https://docs.google.com/spreadsheets/d/1R7mTt79UMOtMrSrhF69EKKzOB5UqTgbkaBhpQcnpv60/edit#gid=631507754
 
 ## チャレンジ要素一覧
