@@ -23,12 +23,12 @@
 ・バイクに関して悩みがある時<br>
 
 ## 設計書
-・テーブル定義書　https://docs.google.com/spreadsheets/d/1bL-8qbTfM4QZnec9CsxH2JCNm4rZt6ACLO4nFZHmzcM/edit#gid=1373217982<br>
-・ER図　https://app.diagrams.net/#G1tB0TbWsw_G2jqmHjpmx5huvQaYCUFL4V<br>
-・アプリケーション詳細設計　https://docs.google.com/spreadsheets/d/1LDx4G7A9fKrR-i9249uUf-yZAwUZkJqMocI_zxuhJME/edit#gid=1431011779
+・[テーブル定義書](https://docs.google.com/spreadsheets/d/1bL-8qbTfM4QZnec9CsxH2JCNm4rZt6ACLO4nFZHmzcM/edit#gid=1373217982)<br>
+・[ER図](https://app.diagrams.net/#G1tB0TbWsw_G2jqmHjpmx5huvQaYCUFL4V)<br>
+・[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1LDx4G7A9fKrR-i9249uUf-yZAwUZkJqMocI_zxuhJME/edit#gid=1431011779)
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1TkewyEB_Ft1ie4xQdsCXWtaf4KFJ9j2fS56XfeZasdE/edit#gid=0
+・[チャレンジ要素](https://docs.google.com/spreadsheets/d/1TkewyEB_Ft1ie4xQdsCXWtaf4KFJ9j2fS56XfeZasdE/edit#gid=0)
 
 ## 開発環境
 - OS：Linux(CentOS)
