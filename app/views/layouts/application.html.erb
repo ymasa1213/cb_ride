@@ -22,15 +22,15 @@
       <ul class="navbar-nav ml-auto">
 <% if user_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">マイページ</a>
+          <%= link_to "マイページ", user_path(current_user), class:"nav-link active" %>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">ユーザー</a>
+          <%= link_to "投稿一覧", posts_path, class:"nav-link active" %>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">投稿</a>
+          <%= link_to "ユーザー", users_path, class:"nav-link active" %>
         </li>
 
         <li class="nav-item">
@@ -39,7 +39,7 @@
 <% elsif admin_signed_in? %>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">会員一覧</a>
+          <%= link_to "会員一覧", admin_users_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
            <%= link_to "ログアウト",  destroy_admin_session_path, method: :delete, class:"nav-link active" %>
