@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CBRide</title>
+    <title>CB-Ride</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% if admin_signed_in? %>
+    <header class= "admin_header">
+      <%= link_to 'CB-Ride', admin_root_path, class: "logo" %>
+    </header>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
