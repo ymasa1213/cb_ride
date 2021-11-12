@@ -1,2 +1,9 @@
-<h1>User::Posts#new</h1>
-<p>Find me in app/views/user/posts/new.html.erb</p>
+<h2>新規投稿</h2>
+<%= form_with model:@post, local:true do |f| %>
+<h6>タイトル</h6>
+<%= f.text_field :title %>
+<h6>本文</h6>
+<%= f.text_field :body %>
+
+<%= f.submit "投稿する", class:"btn btn-success" %>
+<% end %>

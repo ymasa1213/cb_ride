@@ -1,0 +1,20 @@
+<div class= "container">
+  <h2 class= "row">すべてのユーザー</h2>
+  <div class= "col-md-9">
+    <table class= "table">
+      <thead>
+        <th></th>
+        <th>ニックネーム</th>
+      </thead>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></td>
+        <td><%= link_to user_path(user) do %>
+        <%= user.name %></td>
+        <% end %>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,2 +1,18 @@
-<h1>User::Users#show</h1>
-<p>Find me in app/views/user/users/show.html.erb</p>
+<div class= 'container'>
+  <div class= 'row'>
+    <div class= 'col-md-7 mx-auto'>
+      <h2>ユーザー情報</h2>
+      <%= attachment_image_tag(@user, :profile_image, size:"300x300", fallback: "no_image.jpg") %>
+
+      <h5>ニックネーム</h5>
+      <%= @user.name %>
+      <%= link_to "編集する", edit_user_path(@user) %>
+
+      <h5><%= @user.name %>さんの投稿一覧</h5>
+      <% @posts.each do |post| %>
+      <%= post.title %>
+      <%= post.body %>
+      <% end %>
+    </div>
+  </div>
+</div>

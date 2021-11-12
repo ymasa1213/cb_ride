@@ -13,10 +13,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 scope module: :user do
   root to: "homes#top"
   get "about" => "homes#about"
-
   resources :users, only: [:show, :edit, :update]
-  resources :posts
-  resources :likes, only:[:create, :destroy]
+  resources :posts do
+    resource :likes, only:[:create, :destroy]
+  end
   get "users/unsubscribe" => "users#unsubscribe"
   patch "users/withdraw" => "users#withdraw"
   resources :users do

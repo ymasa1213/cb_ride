@@ -1,2 +1,30 @@
-<h1>User::Posts#index</h1>
-<p>Find me in app/views/user/posts/index.html.erb</p>
+<div class= "container">
+  <h2 class= "row">投稿一覧</h2>
+  <div class= "col-md-9">
+    <table class= "table">
+      <thead>
+        <th>ニックネーム</th>
+        <th>タイトル</th>
+        <th>本文</th>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.user.name %></td>
+            <td><%= link_to post_path(post.id) do %>
+            <%= post.title %></td>
+            <% end %>
+            <td><%= post.body %></td>
+
+            <td><% if current_user.already_likes?(post) %>
+            <%= link_to "いいねを外す", post_likes_path(post), method: :delete %>
+            <% else %>
+            <%= link_to "いいね", post_likes_path(post), method: :post %>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

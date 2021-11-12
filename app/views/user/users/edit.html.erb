@@ -1,2 +1,10 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<h2>ユーザー情報編集</h2>
+<%= form_with model:@user, local:true do |f| %>
+<%= f.label :"ニックネーム" %>
+<%= f.text_field :name %>
+
+<%= f.label :"プロフィール画像" %>
+<%= f.attachment_field :profile_image%>
+
+<%= f.submit "更新する", class: "btn btn-secondary" %>
+<% end %>
