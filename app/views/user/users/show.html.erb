@@ -6,6 +6,17 @@
 
       <h5>ニックネーム</h5>
       <%= @user.name %>
+       <% if current_user != @user %>
+        <% if @user.is_followed_by?(current_user) %>
+        <%= link_to user_relationships_path(@user), method: :delete do %>
+        <button class = "btn btn-primary">フォローを外す</button>
+        <% end %>
+        <% else%>
+        <td><%= link_to user_relationships_path(@user), method: :post do %></td>
+        <button class = "btn btn-success">フォローする</button>
+        <% end %>
+        <% end %>
+        <% end %>
       <%= link_to "編集する", edit_user_path(@user) %>
 
       <h5><%= @user.name %>さんの投稿一覧</h5>

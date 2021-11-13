@@ -18,11 +18,21 @@ class User::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
+  end
+
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
   private
-    def user_params
+  def user_params
       params.require(:user).permit(:name, :profile_image)
-    end
+  end
 end
