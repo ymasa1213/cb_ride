@@ -16,15 +16,9 @@
         <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
         <i class="far fa-comment"> <%= post.comments.count %></i>  |
         <% end %>
-        <% if current_user.already_likes?(post) %>
-          <%= link_to  post_likes_path(post), method: :delete do %>
-          <i class="fas fa-heart" style="color:#ff0000;">  <%= post.likes.count %></i>
-          <% end %>
-        <% else %>
-          <%= link_to  post_likes_path(post), method: :post do %>
-          <i class="far fa-heart" style="color:#ff0000;">  <%= post.likes.count %></i>
-          <% end %>
-        <% end %>
+        <p id="like_buttons_<%= post.id %>">
+         <%= render 'user/likes/like', post: post %>
+        </p>
       </div>
     </div>
    </div>
