@@ -1,31 +1,35 @@
-<div class= "container">
-  <h2 class= "row">投稿一覧</h2>
-  <div class= "col-md-9">
-    <table class= "table">
-      <thead>
-        <th>ニックネーム</th>
-        <th>タイトル</th>
-        <th>本文</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%= post.user.name %></td>
-            <td><%= link_to post_path(post.id) do %>
-            <%= post.title %></td>
-            <% end %>
-            <td><%= post.body %></td>
-
-            <td><% if current_user.already_likes?(post) %>
-            <%= link_to "いいねを外す", post_likes_path(post), method: :delete %>
-            <% else %>
-            <%= link_to "いいね", post_likes_path(post), method: :post %>
-            <% end %>
-            </td>
-          </tr>
+<div class="card-list-container">
+  <% @posts.each do |post| %>
+  <div class="card w-50 mx-auto mt-4">
+    <%= attachment_image_tag post, :image, class:"card-img-top"; %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
+        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image_person.jpg", size:'60x60' %><br>
+        <span><i class="fas fa-user mt-4"></i>  <%= post.user.name %></span>
+        </div>
+        <div class="col-9">
+        <p class="card-title">
+          <strong><i class="fas fa-motorcycle"></i><span> <%= post.title %></span></strong>
+        </p>
+        <p class="card-text">本文：<%= post.body %></p>
+        <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
+        <i class="far fa-comment"> <%= post.comments.count %></i>  |
         <% end %>
-      </tbody>
-    </table>
-  </div>
+        <% if current_user.already_likes?(post) %>
+          <%= link_to  post_likes_path(post), method: :delete do %>
+          <i class="fas fa-heart" style="color:#ff0000;">  <%= post.likes.count %></i>
+          <% end %>
+        <% else %>
+          <%= link_to  post_likes_path(post), method: :post do %>
+          <i class="far fa-heart" style="color:#ff0000;">  <%= post.likes.count %></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+   </div>
+ </div>
+ <% end %>
 </div>
+
+

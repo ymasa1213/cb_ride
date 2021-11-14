@@ -1,11 +1,17 @@
-<h2>新規投稿</h2>
-<%= form_with model:@post, local:true do |f| %>
-<h6>画像</h6>
-<%= f.attachment_field :image %>
-<h6>タイトル</h6>
-<%= f.text_field :title %>
-<h6>本文</h6>
-<%= f.text_field :body %>
-
-<%= f.submit "投稿する", class:"btn btn-success" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h3 class="mb-3 mt-4">新規投稿</h3>
+      <%= form_with model:@post, local:true do |f| %>
+        <h6 class="mb-3 mt-4">画像</h6>
+        <%= f.attachment_field :image %>
+        <h6 class="mb-3 mt-4">タイトル</h6>
+        <%= f.text_field :title %>
+        <h6 class="mb-3 mt-4">本文</h6>
+        <%= f.text_area :body, size:"100x5", rows:'5' %>
+        <br>
+        <%= f.submit "投稿する", class:"btn btn-success mt-4" %>
+      <% end %>
+    </div>
+  </div>
+</div>
