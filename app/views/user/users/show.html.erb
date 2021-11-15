@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4>ユーザー情報</h4>
+      <%= attachment_image_tag(@user, :profile_image, size:"200x200", fallback: "no_image.jpg") %>
+      <h5>ニックネーム</h5>
+      <%= @user.name %>
+      <% if current_user != @user %>
+        <% if @user.is_followed_by?(current_user) %>
+          <%= link_to user_relationships_path(@user), method: :delete do %>
+          <button class = "btn btn-primary">フォローを外す</button>
+          <% end %>
+        <% else%>
+          <td><%= link_to user_relationships_path(@user), method: :post do %></td>
+          <button class = "btn btn-success">フォローする</button>
+          <% end %>
+        <% end %>
+      <% end %>
+        <br><%= link_to "編集する", edit_user_path(@user) %>
+    </div>
+    
+    <div class="col-md-8 offset-md-1 text-center">
+    <h3><%= @user.name %>さんの投稿一覧</h3>
+     <div class="card-list-container">
+  <% @posts.each do |post| %>
+  <div class="card w-50 mx-auto mt-4">
+    <%= attachment_image_tag post, :image, class:"card-img-top"; %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
+        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image_person.jpg", size:'60x60' %><br>
+        <span><i class="fas fa-user mt-4"></i>  <%= post.user.name %></span>
+        </div>
+        <div class="col-9">
+        <p class="card-title">
+          <strong><i class="fas fa-motorcycle"></i><span> <%= post.title %></span></strong>
+        </p>
+        <p class="card-text">本文：<%= post.body %></p>
+        <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
+        <i class="far fa-comment"> <%= post.comments.count %></i>
+        <% end %>
+        <p id="like_buttons_<%= post.id %>">
+         <%= render 'user/likes/like', post: post %>
+        </p>
+      </div>
+    </div>
+   </div>
+ </div>
+ <% end %>
+</div>
+    </div>
+  </div>
+</div>

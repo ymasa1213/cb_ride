@@ -1,0 +1,25 @@
+<div class= "container">
+  <h2 class= "row">すべてのユーザー</h2>
+  <div class= "col-md-9">
+    <table class= "table">
+      <thead>
+        <th>画像</th>
+        <th>ニックネーム</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </thead>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></td>
+        <td><%= link_to user_path(user) do %>
+        <%= user.name %></td>
+        <% end %>
+        <td>フォロー数：<%= user.followings.count %></td>
+        <td>フォロワー数：<%= user.followers.count %></td>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
