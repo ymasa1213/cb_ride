@@ -22,5 +22,7 @@
       <%= f.text_area :comment, size:"100x5", rows:'5' %>
       <%= f.submit "コメントする",class: "btn btn-success" %>
     <% end %>
+    <p id="like_buttons_<%= @post.id %>">
+    <%= render 'user/likes/like', post: @post %>
   </div>
 </div>
