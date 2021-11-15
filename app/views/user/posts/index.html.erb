@@ -14,7 +14,7 @@
         </p>
         <p class="card-text">本文：<%= post.body %></p>
         <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
-        <i class="far fa-comment"> <%= post.comments.count %></i>  |
+        <i class="far fa-comment"> <%= post.comments.count %></i>
         <% end %>
         <p id="like_buttons_<%= post.id %>">
          <%= render 'user/likes/like', post: post %>
@@ -25,5 +25,3 @@
  </div>
  <% end %>
 </div>
-
-

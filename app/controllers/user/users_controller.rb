@@ -19,6 +19,7 @@ class User::UsersController < ApplicationController
 
   def index
     @users = User.where.not(id: current_user.id)
+    @posts = Post.all
   end
 
   def followings

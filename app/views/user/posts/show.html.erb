@@ -1,7 +1,7 @@
 <div class= "container post-detail">
   <h2 class= "row">投稿詳細</h2>
   <div class= "col-md-9">
-    <%= attachment_image_tag @post, :image, fallback: "no_image.jpg" %>
+    <%= attachment_image_tag @post, :image, fallback: "no_image_person.jpg" %>
     <%= @post.title %>
     <%= @post.body %>
     <table>
@@ -13,14 +13,14 @@
           <% end %>
           <td><%= comment.comment %></td>
           <% if comment.user == current_user %>
-          <td><%= link_to "Destroy", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-danger" %></td>
+          <td><%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-danger" %></td>
           <% end %>
         </tr>
       <% end %>
     </table>
     <%= form_with(model:[@post, @comment], local: true) do |f| %>
       <%= f.text_area :comment, size:"100x5", rows:'5' %>
-      <%= f.submit "送信" %>
+      <%= f.submit "コメントする",class: "btn btn-success" %>
     <% end %>
   </div>
 </div>

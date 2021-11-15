@@ -6,9 +6,9 @@
         <h6 class="mb-3 mt-4">画像</h6>
         <%= f.attachment_field :image %>
         <h6 class="mb-3 mt-4">タイトル</h6>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, class: "form-control" %>
         <h6 class="mb-3 mt-4">本文</h6>
-        <%= f.text_area :body, size:"100x5", rows:'5' %>
+        <%= f.text_area :body, class: "form-control", size:"100x5", rows:'5' %>
         <br>
         <%= f.submit "投稿する", class:"btn btn-success mt-4" %>
       <% end %>
