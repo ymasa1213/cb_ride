@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def is_followed_by?(user)
     reverse_of_relationships.find_by(following_id: user.id).present?
   end
+
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end
