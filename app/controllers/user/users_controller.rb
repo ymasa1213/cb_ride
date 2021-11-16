@@ -32,6 +32,14 @@ class User::UsersController < ApplicationController
     @users = user.followers
   end
 
+  def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会しました"
+    redirect_to root_path
+  end
+
   private
   def user_params
       params.require(:user).permit(:name, :profile_image)
