@@ -1,10 +1,11 @@
 <div class= "container">
-  <h2 class= "row">すべてのユーザー</h2>
-  <div class= "col-md-9">
+  <h2 class= "row ml-5 mt-4">すべてのユーザー</h2>
+  <div class= "col-md-9 mx-auto">
     <table class= "table">
       <thead>
         <th>画像</th>
         <th>ニックネーム</th>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
@@ -15,8 +16,9 @@
         <td><%= link_to user_path(user) do %>
         <%= user.name %></td>
         <% end %>
-        <td>フォロー数：<%= user.followings.count %></td>
-        <td>フォロワー数：<%= user.followers.count %></td>
+        <td><%= user.followings.count %>フォロー</td>
+        <td><%= user.followers.count %>フォロワー</td>
+        <td><%= link_to '詳細', user_path(user.id) %></td>
         <% end %>
       </tr>
       </tbody>

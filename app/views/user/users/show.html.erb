@@ -17,6 +17,19 @@
         <% end %>
       <% end %>
         <br><%= link_to "編集する", edit_user_path(@user) %>
+        <tr>
+         <th>フォロー</th>
+    <td><%= link_to followings_user_path(@user) do %>
+    <%= @user.followings.count %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>フォロワー</th>
+    <td><%= link_to followers_user_path(@user) do %>
+     <%= @user.followers.count %></td>
+     <% end %>
+  </tr>
+
     </div>
 
     <div class="col-md-8 text-center">
