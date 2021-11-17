@@ -15,7 +15,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(id: "DESC")
+    @posts = Post.all.order(id: 'DESC')
     @user = current_user
 
   end
@@ -38,6 +38,12 @@ class User::PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def search
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render 'index'
   end
 
   private
