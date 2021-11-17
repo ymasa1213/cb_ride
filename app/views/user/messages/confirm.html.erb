@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+    <%= form_with model:@message, url:done_path, local:true do |f| %>
+    <h2 class="mb-3 mt-4">内容確認</h2>
+    <div>
+      <strong>名前</strong>
+      <p>
+        <%= f.hidden_field :name %>
+        <%= @message.name %>
+      </p>
+    </div>
+    <div>
+      <strong>メールアドレス</strong>
+      <p>
+        <%= f.hidden_field :email %>
+        <%= @message.email %>
+      </p>
+    </div>
+    <div>
+      <strong>内容</strong>
+      <p>
+        <%= f.hidden_field :content %>
+        <%= simple_format(@message.content) %>
+      </p>
+    </div>
+      <%= f.submit '送信する' %>
+      <% end %>
+      <%= form_with model:@message, url:back_path, local: true do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :content %>
+      <%= f.submit '戻る' %>
+      <% end %>
+    </div>
+  </div>
+</div>
