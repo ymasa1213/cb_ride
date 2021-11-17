@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  # ユーザー
   scope module: :user do
     root to: "homes#top"
     get "about" => "homes#about"
@@ -27,8 +28,13 @@ Rails.application.routes.draw do
       get :followings, on: :member
       get :followers, on: :member
     end
+    get  'index' =>'messages#index'
+    post 'confirm' => 'messages#confirm'
+    post 'back', to: 'messages#back'
+    post 'done' => 'messages#done'
   end
 
+  # 管理者
   namespace :admin do
     root to:"homes#top"
     resources :users, only:[:index, :show, :edit, :update]
