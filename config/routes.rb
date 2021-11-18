@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     post 'confirm' => 'messages#confirm'
     post 'back', to: 'messages#back'
     post 'done' => 'messages#done'
+
+    get 'search' => 'posts#search'
   end
 
   # 管理者
