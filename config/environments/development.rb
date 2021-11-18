@@ -64,8 +64,8 @@ Rails.application.configure do
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => "gmail.com",
-      :user_name => Rails.application.credentials.g_mail[:g_mail], # 送信先アドレス
-      :password => Rails.application.credentials.g_mail[:g_pass], #2段階認証パスワード
+      :user_name => ENV['SEND_TO'], # 送信先アドレス
+      :password => ENV['GMAIL_PASSWORD'], #2段階認証パスワード
       :authentication => :plain,
       :enable_starttls_auto => true
   }

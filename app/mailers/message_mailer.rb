@@ -1,6 +1,6 @@
 class MessageMailer < ApplicationMailer
   # 送信先アドレス
-  default to: Rails.application.credentials.g_mail[:g_mail]
+  default to: ENV['SEND_TO']
 
   def received_email(message)
     @message = message
