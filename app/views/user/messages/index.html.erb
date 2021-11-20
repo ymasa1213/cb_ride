@@ -3,18 +3,6 @@
     <div class="col-md-8 mx-auto">
       <%= form_with model:@message, url:confirm_path, local:true do |f| %>
           <h2 class="mb-3 mt-4">お問い合わせ</h2>
-
-            <% if @message.errors.present? %>
-              <div>
-                <strong>入力内容にエラーがあります</strong>
-                <ul>
-                  <% @message.errors.each do |attr, error| %>
-                    <li><%= error %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-
           <div>
             <strong>名前</strong>
             <p><%= f.text_field :name, class: "form-control" %></p>

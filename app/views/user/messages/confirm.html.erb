@@ -24,13 +24,13 @@
         <%= simple_format(@message.content) %>
       </p>
     </div>
-      <%= f.submit '送信する' %>
+      <%= f.submit '送信する', class:"btn btn-success mt-4" %>
       <% end %>
       <%= form_with model:@message, url:back_path, local: true do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :email %>
       <%= f.hidden_field :content %>
-      <%= f.submit '戻る' %>
+      <%= f.submit '戻る', class:"btn btn-primary mt-4" %>
       <% end %>
     </div>
   </div>
