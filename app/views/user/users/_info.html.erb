@@ -1,0 +1,27 @@
+<h4>ユーザー情報</h4>
+<%= attachment_image_tag user, :profile_image, size:"200x200", fallback: "no_image.jpg",class:"rounded-circle mx-auto"; %>
+<h5>ニックネーム</h5>
+<%= user.name %><br>
+<% if current_user != user %>
+  <% if user.is_followed_by?(current_user) %>
+    <%= link_to user_relationships_path(user), method: :delete do %>
+    <button class = "btn btn-primary mt-3">フォローを外す</button>
+    <% end %>
+  <% else%>
+    <%= link_to user_relationships_path(user), method: :post do %>
+    <button class = "btn btn-success mt-3">フォローする</button>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if current_user == user %>
+<br><%= link_to "編集", edit_user_path(user),class: "fas fa-user-cog btn btn-outline-secondary btn-block mt-3 mr-3 mb-3" %>
+<% end %>
+<br>
+<p><%= link_to followings_user_path(user) do %>
+<%= user.followings.count %>フォロー
+<% end %></p>
+
+<p><%= link_to followers_user_path(user) do %>
+<%= user.followers.count %>フォロワー
+<% end %></p>
