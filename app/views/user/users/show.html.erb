@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <h4>ユーザー情報</h4>
-      <%= attachment_image_tag(@user, :profile_image, size:"200x200", fallback: "no_image_person.jpg") %>
+      <%= attachment_image_tag(@user, :profile_image, size:"200x200", fallback: "no_image.jpg") %>
       <h5>ニックネーム</h5>
       <%= @user.name %>
       <% if current_user != @user %>
@@ -37,11 +37,11 @@
      <div class="card-list-container">
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4">
-    <%= attachment_image_tag post, :image,size:"400x300",fallback: "no_image_person.jpg", class:"card-img-top"; %>
+    <%= attachment_image_tag post, :image,size:"400x300",fallback: "no_image.jpg", class:"card-img-top"; %>
     <div class="card-body">
       <div class="row">
         <div class="col-4">
-        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image_person.jpg", size:'60x60' %><br>
+        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %><br>
         <span><i class="fas fa-user mt-4"></i>  <%= post.user.name %></span>
         </div>
         <div class="col-8">
