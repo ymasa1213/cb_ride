@@ -1,4 +1,5 @@
 class User::MessagesController < ApplicationController
+  before_action :authenticate_user!
   def index
     # 入力画面
     @message = Message.new
