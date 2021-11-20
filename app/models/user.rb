@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :following
   attachment :profile_image, destroy: false
 
+  validates :name, presence: true
+
   def already_likes?(post)
     self.likes.exists?(post_id: post.id)
   end
