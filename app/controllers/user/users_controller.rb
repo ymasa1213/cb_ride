@@ -3,6 +3,7 @@ class User::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(id: 'DESC')
+    # 新着順(降順)で表示
   end
 
   def edit

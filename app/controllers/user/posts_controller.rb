@@ -40,6 +40,7 @@ class User::PostsController < ApplicationController
     end
   end
 
+# 検索
   def search
     @posts = Post.search(params[:keyword])
     @keyword = params[:keyword]

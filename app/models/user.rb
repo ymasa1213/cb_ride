@@ -19,10 +19,12 @@ class User < ApplicationRecord
     self.likes.exists?(post_id: post.id)
   end
 
+# フォローしているか確認
   def is_followed_by?(user)
     reverse_of_relationships.find_by(following_id: user.id).present?
   end
 
+# 論理削除
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
