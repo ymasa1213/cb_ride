@@ -78,3 +78,5 @@ group :production do
   gem 'mysql2'
 end
 gem 'bootstrap4-kaminari-views'
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
