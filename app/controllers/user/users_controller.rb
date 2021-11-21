@@ -38,7 +38,7 @@ class User::UsersController < ApplicationController
 
   def withdraw
     @user = current_user
-    @user.update(is_deleted: true)
+    @user.destroy
     reset_session
     flash[:notice] = "退会しました"
     redirect_to root_path
