@@ -18,7 +18,7 @@
         <% end %>
         <td><%= user.followings.count %>フォロー</td>
         <td><%= user.followers.count %>フォロワー</td>
-        <td> <% if user.is_deleted == true %><p class = 'text-secondary font-weight-bold text-center'>退会</p>
+        <td> <% if user.is_deleted == true %><p class = 'text-secondary font-weight-bold text-center'>無効</p>
             <% elsif user.is_deleted == false %><p class = 'text-success font-weight-bold text-center '>有効</p>
             <% end %></td>
         <td><%= link_to '会員詳細', edit_admin_user_path(user.id) %></td>
