@@ -1,0 +1,37 @@
+<div class= "container">
+  <div class= "row">
+    <div class= "text-center col-md-3 mt-5">
+      <h4>ユーザー情報</h4>
+       <%= attachment_image_tag @user, :profile_image, size:"200x200", fallback: "no_image.jpg",class:"rounded-circle mx-auto"; %>
+      <h5>ニックネーム</h5>
+      <%= @user.name %><br>
+      <%= link_to "編集", edit_admin_user_path(@user),class: "fas fa-user-cog btn btn-outline-secondary btn-block mt-3 mr-3 mb-3" %>
+      <br>
+      <p><%= @user.followings.count %>フォロー</p>
+      <p><%= @user.followers.count %>フォロワー</p>
+    </div>
+    <div class= "col-md-8 offset-md-1 mt-5">
+      <h2><%= @post.title %></h2>
+      <%= attachment_image_tag @post, :image,size:"640x450", fallback: "no_image.jpg" %>
+
+      <h3>本文</h3>
+      <%= @post.body %>
+      <br>
+        <%= link_to "削除する", admin_post_path(@post.id), method: :delete, class:"btn btn-danger mt-3", data: { confirm: '本当に削除しますか？' } %>
+      <br>
+      <h3 class= "mt-5">コメント</h3>
+      <table>
+        <% @post.comments.each do |comment| %>
+          <tr>
+            <td><%= link_to user_path(comment.user) do %>
+              <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60', class:"mr-4" %><br>
+              <%= comment.user.name %></td>
+            <% end %>
+            <td><%= comment.comment %></td>
+            <td><%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-danger ml-3" , data: { confirm: '本当に削除しますか？' }%></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ class User < ApplicationRecord
     reverse_of_relationships.find_by(following_id: user.id).present?
   end
 
-# 論理削除
+# 会員ステータス　論理削除
   def active_for_authentication?
     super && (self.is_deleted == false)
   end

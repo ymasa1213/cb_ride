@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
 # 検索
-  def self.search(keyword)　
+  def self.search(keyword)
   where(["title like? OR body like?", "%#{keyword}%", "%#{keyword}%"])
   end
 
