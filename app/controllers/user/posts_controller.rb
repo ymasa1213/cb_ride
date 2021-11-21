@@ -1,5 +1,8 @@
 class User::PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only:[:edit, :update]
+  #他のユーザーのpostを変更できないようにする
+
   def new
     @post = Post.new
   end
@@ -58,5 +61,12 @@ class User::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :image)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+     unless @post.user == current_user
+     redirect_to posts_path
+     end
   end
 end
