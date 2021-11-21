@@ -1,7 +1,12 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:update, :edit]
+  #他のユーザーを編集できないように
+
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(id: 'DESC')
+    # 新着順(降順)で表示
   end
 
   def edit
@@ -11,14 +16,16 @@ class User::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path(@user)
+      flash[:notice] = "会員情報を更新しました"
+      redirect_to user_path(@user)
     else
-    render "edit"
+      flash[:notice] = "必要事項を入力してください"
+      render "edit"
     end
   end
 
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id).page(params[:page]).per(8)
     @posts = Post.all
   end
 
@@ -34,7 +41,7 @@ class User::UsersController < ApplicationController
 
   def withdraw
     @user = current_user
-    @user.update(is_deleted: true)
+    @user.destroy
     reset_session
     flash[:notice] = "退会しました"
     redirect_to root_path
@@ -42,6 +49,14 @@ class User::UsersController < ApplicationController
 
   private
   def user_params
-      params.require(:user).permit(:name, :profile_image)
+      params.require(:user).permit(:name, :email, :profile_image)
   end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
+  end
+
 end

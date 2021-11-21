@@ -4,7 +4,12 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   attachment :image, destroy: false
 
-  def self.search(keyword)
+  validates :title, presence: true
+  validates :body, presence: true
+
+# 検索
+  def self.search(keyword)　
   where(["title like? OR body like?", "%#{keyword}%", "%#{keyword}%"])
-end
+  end
+
 end

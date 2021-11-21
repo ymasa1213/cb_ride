@@ -1,65 +1,31 @@
 <div class="container">
+  <h2 class="text-center mt-3"><%= @user.name %>さんの投稿</h2>
   <div class="row">
-    <div class="col-md-3">
-      <h4>ユーザー情報</h4>
-      <%= attachment_image_tag(@user, :profile_image, size:"200x200", fallback: "no_image_person.jpg") %>
-      <h5>ニックネーム</h5>
-      <%= @user.name %>
-      <% if current_user != @user %>
-        <% if @user.is_followed_by?(current_user) %>
-          <%= link_to user_relationships_path(@user), method: :delete do %>
-          <button class = "btn btn-primary">フォローを外す</button>
-          <% end %>
-        <% else%>
-          <td><%= link_to user_relationships_path(@user), method: :post do %></td>
-          <button class = "btn btn-success">フォローする</button>
-          <% end %>
-        <% end %>
-      <% end %>
-        <br><%= link_to "編集する", edit_user_path(@user) %>
-        <tr>
-         <th>フォロー</th>
-    <td><%= link_to followings_user_path(@user) do %>
-    <%= @user.followings.count %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <th>フォロワー</th>
-    <td><%= link_to followers_user_path(@user) do %>
-     <%= @user.followers.count %></td>
-     <% end %>
-  </tr>
-
+    <div class="text-center card col-md-3">
+      <%= render 'info', user: @user %>
     </div>
-
-    <div class="col-md-8 text-center">
-    <h3><%= @user.name %>さんの投稿一覧</h3>
-     <div class="card-list-container">
-  <% @posts.each do |post| %>
-  <div class="card w-50 mx-auto mt-4">
-    <%= attachment_image_tag post, :image,size:"400x300",fallback: "no_image_person.jpg", class:"card-img-top"; %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-4">
-        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image_person.jpg", size:'60x60' %><br>
-        <span><i class="fas fa-user mt-4"></i>  <%= post.user.name %></span>
+      <% @posts.each do |post| %>
+        <div class="col-md-3 mt-4">
+          <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :image,size:"300x200",fallback: "no_image.jpg", class:"card-img-top"; %>
+          <% end %>
+          <div class="card"%>
+            <div class="card-body text-center">
+              <h4 class="card-title"><%=post.title %></h4>
+              <div class="row">
+                <div class="col-9 mx-auto">
+                  <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
+                    <i class="far fa-comment mb-3"> <%= post.comments.count %></i>
+                  <% end %>
+                  <p id="like_buttons_<%= post.id %>">
+                  <%= render 'user/likes/like', post: post %>
+                  </p>
+                  <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-8">
-        <p class="card-title">
-          <strong><span> <%= post.title %></span></strong>
-        </p>
-        <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
-        <i class="far fa-comment"> <%= post.comments.count %></i>
-        <% end %>
-        <p id="like_buttons_<%= post.id %>">
-         <%= render 'user/likes/like', post: post %>
-        </p>
+      <% end %>
       </div>
     </div>
-   </div>
- </div>
- <% end %>
-</div>
-    </div>
-  </div>
-</div>

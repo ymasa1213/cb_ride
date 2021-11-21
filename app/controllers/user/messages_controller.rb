@@ -1,4 +1,5 @@
 class User::MessagesController < ApplicationController
+  before_action :authenticate_user!
   def index
     # 入力画面
     @message = Message.new
@@ -12,6 +13,7 @@ class User::MessagesController < ApplicationController
       render :action => 'confirm'
     else
       # 失敗なら入力画面へ
+      flash[:notice] = "必要事項を入力してください"
       render :action => 'index'
     end
   end

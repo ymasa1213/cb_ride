@@ -16,6 +16,7 @@
         <%= f.attachment_field :profile_image %>
         </div>
         <%= f.submit "更新する", class: "btn btn-success mt-3" %>
+      　<%= link_to "退会", user_unsubscribe_path(@user), class: "btn btn-danger mt-3" %>
       <% end %>
     </div>
   </div>

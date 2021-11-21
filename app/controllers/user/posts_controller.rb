@@ -1,4 +1,8 @@
 class User::PostsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only:[:edit, :update]
+  #他のユーザーのpostを変更できないようにする
+
   def new
     @post = Post.new
   end
@@ -7,15 +11,15 @@ class User::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-    redirect_to root_path
+      flash[:notice] = "新規投稿しました"
+    redirect_to posts_path
     else
-      @posts = Post.all
-      render 'index'
+      render 'new'
     end
   end
 
   def index
-    @posts = Post.all.order(id: 'DESC')
+    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(6)
     @user = current_user
 
   end
@@ -40,15 +44,29 @@ class User::PostsController < ApplicationController
     end
   end
 
+# 検索
   def search
     @posts = Post.search(params[:keyword])
     @keyword = params[:keyword]
     render 'index'
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:title, :body, :image)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+     unless @post.user == current_user
+     redirect_to posts_path
+     end
   end
 end
