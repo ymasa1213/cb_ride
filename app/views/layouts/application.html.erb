@@ -14,6 +14,11 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="/">CB-Ride</a>
 
+        <div class="col mt-3 justify-content-center d-flex">
+          <strong class="text-success"><%= notice %></strong>
+          <strong class="text-danger"><%= alert %></strong>
+        </div>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,8 +72,6 @@
         </div>
       </div>
     </nav>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
     <%= yield %>
     <footer class="footer mt-5">
       <nav class="navbar">

@@ -20,10 +20,10 @@
   <br><%= link_to "編集", edit_user_path(user),class: "fas fa-user-cog btn btn-outline-secondary btn-block mt-3 mr-3 mb-3" %>
 <% end %>
 <br>
-<p><%= link_to followings_user_path(user), class:"btn btn-dark mt-3" do %>
+<p><%= link_to followings_user_path(user), class:"btn btn-dark mt-3 btn-sm" do %>
   <%= user.followings.count %>フォロー
-<% end %></p>
+<% end %>
 
-<p><%= link_to followers_user_path(user), class:"btn btn-dark" do %>
+<%= link_to followers_user_path(user), class:"btn btn-dark mt-3 btn-sm" do %>
   <%= user.followers.count %>フォロワー
 <% end %></p>
