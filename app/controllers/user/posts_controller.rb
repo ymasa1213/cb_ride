@@ -38,6 +38,7 @@ class User::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
     if @post.update(post_params)
+      flash[:notice] = "更新しました"
       redirect_to post_path
     else
       render 'edit'
@@ -46,7 +47,7 @@ class User::PostsController < ApplicationController
 
 # 検索
   def search
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(6)
     @keyword = params[:keyword]
     render 'index'
   end
@@ -54,6 +55,7 @@ class User::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "削除しました"
     redirect_to posts_path
   end
 

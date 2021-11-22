@@ -2,31 +2,31 @@
   <div class= "row ml-5 mt-4">
     <div class= "col-md-9 mx-auto">
       <table class='table'>
-      <h2>フォロワー</h2>
-      <% if @users.present? %>
-        <thead>
-         <tr>
-          <th>画像</th>
-          <th>ニックネーム</th>
-          <th></th>
-          <th></th>
-          <th></th>
-         </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
+        <h2>フォロワー</h2>
+        <% if @users.present? %>
+          <thead>
             <tr>
-              <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50') %></td>
-              <td><%= user.name %></td>
-              <td><%= user.followings.count %>フォロー</td>
-              <td><%= user.followers.count %>フォロワー</td>
-              <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
+              <th>画像</th>
+              <th>ニックネーム</th>
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50') %></td>
+                <td><%= user.name %></td>
+                <td><%= user.followings.count %>フォロー</td>
+                <td><%= user.followers.count %>フォロワー</td>
+                <td><%= link_to '詳細', user_path(user), class: "user_#{user.id} btn btn-dark" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+       </table>
       <% else %>
-      ユーザーはいません
+        ユーザーはいません
       <% end %>
     </div>
   </div>

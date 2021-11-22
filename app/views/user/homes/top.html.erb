@@ -1,12 +1,13 @@
 <div class="jumbotron" style="background: black;">
-    <h1 class="display-4 text-center" style="color: white;">バイクに乗ろう。</h1>
+  <div class="top-img"><br><br><br><br><br><br><br><br><br>
+    <h1 class="display-4 text-center" style="color: white;">バイクに乗ろう</h1>
     <p class="lead text-center px-3" style="color: white;">CB-Rideは、バイクに関する情報を共有できます。</p>
     <p class="pt-2 text-center">
       <%= link_to "新規登録", new_user_registration_path, class:"btn-lg mr-5 fas fa-user-plus btn btn-success" %>
       <%= link_to "ログイン", new_user_session_path, class:"btn-lg fas fa-sign-in-alt btn btn-primary" %>
     </p>
+  </div>
 </div>
-
 <div class="container">
   <h2>新着投稿</h2>
   <div  class="row">
@@ -22,5 +23,5 @@
         </div>
       </div>
     <% end %>
-    </div>
   </div>
+</div>

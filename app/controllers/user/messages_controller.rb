@@ -13,7 +13,7 @@ class User::MessagesController < ApplicationController
       render :action => 'confirm'
     else
       # 失敗なら入力画面へ
-      flash[:notice] = "必要事項を入力してください"
+      flash[:alert] = "必要事項を入力してください"
       render :action => 'index'
     end
   end

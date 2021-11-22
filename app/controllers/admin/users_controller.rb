@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(8)
   end
 
   def show
@@ -16,7 +16,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice]= "会員情報を変更しました"
-      redirect_to admin_user_path
+      redirect_to admin_users_path
     else
       flash[:alert]= "会員情報の変更に失敗しました"
       render :edit

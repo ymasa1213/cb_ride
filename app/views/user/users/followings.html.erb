@@ -21,7 +21,7 @@
                   <td><%= user.name %></td>
                   <td><%= user.followings.count %>フォロー</td>
                   <td><%= user.followers.count %>フォロワー</td>
-                  <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
+                  <td><%= link_to '詳細', user_path(user), class: "user_#{user.id} btn btn-dark" %></td>
                 </tr>
               <% end %>
             </tbody>

@@ -16,3 +16,18 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+* { font-family: 'Noto Sans JP', sans-serif;}
+
+.color {
+    background-color: #EEEEEE;  /* 背景色指定 */
+}
+
+.top-img {
+  background-image: image-url("top.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+  min-height: 70px;
+  background-position: center
+}

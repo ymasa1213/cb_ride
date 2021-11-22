@@ -3,7 +3,7 @@
     <div class ='col-md-9 mx-auto' >
       <p><strong>本当に退会しますか？</strong></p><br>
       <p>退会すると、会員情報や</p>
-      <p>これまでの投稿が閲覧できなくなります。</p>
+      <p>これまでの投稿が削除され、閲覧できなくなります。</p>
       <p>退会する場合は、「退会する」をクリックしてください。</p>
       <p><%= link_to '退会しない', root_path, class: 'btn btn-primary mr-3 mt-5'%>
         <%= link_to '退会する', user_withdraw_path, method: :patch,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger ml-3 mt-5'  %></p>
