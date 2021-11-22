@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     post 'done' => 'messages#done'
 
     get 'search' => 'posts#search'
+    get 'rank' => 'ranks#rank'
   end
 
   # 管理者

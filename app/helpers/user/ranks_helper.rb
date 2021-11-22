@@ -1,0 +1,2 @@
+module User::RanksHelper
+end
