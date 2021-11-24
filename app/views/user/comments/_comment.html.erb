@@ -13,6 +13,6 @@
   <% end %>
 </table>
 <%= form_with(model:[post, comment], remote: true) do |f| %>
-  <%= f.text_area :comment, size:"100x5", rows:'5' %>
+  <%= f.text_area :comment, size:"70x5", rows:'5' %>
   <%= f.submit "コメントする",class: "btn btn-success" %>
 <% end %>
