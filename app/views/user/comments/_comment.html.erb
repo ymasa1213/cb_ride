@@ -1,8 +1,8 @@
 <table>
   <% post.comments.each do |comment| %>
     <tr>
-      <%= link_to user_path(comment.user) do %>
         <td><%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60', class:"mr-4" %><br>
+      <%= link_to user_path(comment.user_id) do %>
         <%= comment.user.name %></td>
       <% end %>
       <td><%= comment.comment %></td>
