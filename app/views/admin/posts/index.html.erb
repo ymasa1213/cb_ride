@@ -15,7 +15,7 @@
                   <span><i class="fas fa-user mt-4"></i>  <%= post.user.name %></span>
                 </div>
                 <div class="col-8">
-                  <span><%= link_to post_path(post.id), class:"text-dark" do %></span>
+                  <span><%= link_to admin_post_path(post.id), class:"text-dark" do %></span>
                     <i class="far fa-comment mb-3"> <%= post.comments.count %></i>
                   <% end %>
                   <p><i class="fas fa-heart" style="color:#ff0000;">  <%= post.likes.count %></i></p>

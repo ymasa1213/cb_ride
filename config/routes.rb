@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   # 管理者
   namespace :admin do
     root to:"homes#top"
-    resources :users, only:[:index, :show, :edit, :update]
+    resources :users, only:[:index, :edit, :update]
     resources :posts do
     resources :comments, only:[:destroy]
     end

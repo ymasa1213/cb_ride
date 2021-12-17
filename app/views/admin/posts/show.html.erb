@@ -23,7 +23,7 @@
       <table>
         <% @post.comments.each do |comment| %>
           <tr>
-            <td><%= link_to user_path(comment.user) do %>
+            <td><%= link_to edit_admin_user_path(comment.user) do %>
               <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60', class:"mr-4" %><br>
               <%= comment.user.name %></td>
             <% end %>

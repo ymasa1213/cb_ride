@@ -1,7 +1,7 @@
 <table>
   <% post.comments.each do |comment| %>
     <tr>
-        <td><%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60', class:"mr-4" %><br>
+      <td><%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60', class:"mr-4" %><br>
       <%= link_to user_path(comment.user_id) do %>
         <%= comment.user.name %></td>
       <% end %>
@@ -13,6 +13,6 @@
   <% end %>
 </table>
 <%= form_with(model:[post, comment], remote: true) do |f| %>
-  <%= f.text_area :comment, size:"100x5", rows:'5' %>
+  <%= f.text_area :comment, size:"70x5", rows:'5' %>
   <%= f.submit "コメントする",class: "btn btn-success" %>
 <% end %>
