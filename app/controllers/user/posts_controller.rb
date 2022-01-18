@@ -49,7 +49,6 @@ class User::PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword]).page(params[:page]).per(6)
     @keyword = params[:keyword]
-    render 'index'
   end
 
   def destroy
