@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
     get 'search' => 'posts#search'
     get 'rank' => 'ranks#rank'
+    get 'training' => 'trainings#training'
   end
 
   # 管理者
